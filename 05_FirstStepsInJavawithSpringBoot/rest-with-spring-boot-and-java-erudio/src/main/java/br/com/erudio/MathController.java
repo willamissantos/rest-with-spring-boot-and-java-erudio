@@ -14,7 +14,25 @@ public class MathController {
 	@GetMapping("/sum/{numberOne}/{numberTwo}")
 	public Double sum(
 			@PathVariable(name = "numberOne") String numberOne,
-			@PathVariable(name = "numberTwo") String numberTwo) {
-		return 1D;
+			@PathVariable(name = "numberTwo") String numberTwo
+			) throws Exception {
+		
+				if(!isNumeric(numberOne) || !isNumeric(numberTwo)){
+					throw new Exception();
+				}
+				
+			return convertToDouble(numberOne) + convertToDouble(numberTwo);
+			
+		}
+
+	private Double convertToDouble(String strNumber) {
+		// TODO Auto-generated method stub
+		return null;
 	}
+
+	private boolean isNumeric(String strNumber) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
 }
